@@ -75,7 +75,7 @@ __Параметры__
 * `LPMEMORYSTATUS lpBuffer` - Указатель на структуру, в которую будет записина информация о памяти
 
 __Возращаемое значение__
-* __Функция не возвращает значене__
+* __Функция не возвращает значение__
 
 
 ##[Heap32First](https://msdn.microsoft.com/en-us/library/windows/desktop/ms683245(v=vs.85).aspx)
@@ -134,9 +134,43 @@ __Возращаемое значение__
 * Возвращает индекс изображения, если его удальнось добавить
 * Иначе вернет -1
 
-##LoadImage
-##Module32First
-##Module32Next
+##[LoadImage](https://msdn.microsoft.com/en-us/library/windows/desktop/ms648045(v=vs.85).aspx)
+Загружает значок, курсор, анимированый курсор или изображение без сжатия (bitmap)
+
+__Параметры__
+* `HINSTANCE hinst` - Хэндл (дескриптор) модуля DLL или исполняемого файла (exe)
+* `LPCTSTR lpszName` - Загружаемоем изображение
+* `UINT uType` - Тип загружаемого изображения
+* `int cxDesired` - Устанавливает ширину значка или курсора
+* `int cyDesired` - Устанавливает высоту значка или курсора
+* `UINT fuLoad` - Одна из [констант](https://msdn.microsoft.com/en-us/library/windows/desktop/ms648045(v=vs.85).aspx)
+
+__Возращаемое значение__
+* Возвращает дексриптор, если выполнена успешно
+* Иначе возвращает NULL(0)
+
+##[Module32First](https://msdn.microsoft.com/ru-ru/library/windows/desktop/ms684218(v=vs.85).aspx)
+Получает инофрмацию о первом модуля который связан с процессом
+
+__Параметры__
+* `HANDLE hSnapshot` - Хэндл (дескриптор) на статически срез данных из CreateToolhelp32Snapshot
+* `LPMODULEENTRY32 lpme` - Указатель на структуру, в которую будет записана информация про модуль
+
+__Возращаемое значение__
+* Возвращает true, если следующее вхождение модуля было скопировано в буффер
+* Иначе вернет false
+
+##[Module32Next](https://msdn.microsoft.com/en-us/library/windows/desktop/ms684221(v=vs.85).aspx)
+Получает инофрмацию о следующем модуле который связан с процессом
+
+__Параметры__
+* `HANDLE hSnapshot` - Хэндл (дескриптор) на статически срез данных из CreateToolhelp32Snapshot
+* `LPMODULEENTRY32 lpme` - Указатель на структуру, в которую будет записана информация про модуль
+
+__Возращаемое значение__
+* Возвращает true, если следующее вхождение было скопировано в буфер
+* Иначе возвращает False
+
 ##OpenProcess
 ##Process32First
 ##Process32Next
